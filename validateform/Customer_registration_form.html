@@ -1,0 +1,279 @@
+<!doctype html>
+<html>
+    <head>
+        <title>registration page</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+    <div class="form-box">
+        
+        <div class="upperpart">
+            <div class="logo">
+            <img src="logo.png" alt="logo">
+               
+            </div>
+            <div class="login">
+                <h1>Registration</h1>
+            </div>
+        </div>
+        <div class="lowerpart">
+            <form method="post" action="welcome.php" onsubmit="return Validate()" name="vform">
+            
+                <div class="left">
+                    <label>Name</label>
+	<input type="text" name="name" placeholder="Enter your full Name">
+	<div id="name_error" class="val_error"></div>
+	<label>Email</label>
+<input type="email" name="email" placeholder="Enter a valid email address">
+<div id="email_error" class="val_error"></div>
+    <label>Gender</label>
+<fieldset width>
+
+    <input type="radio" name="gender" value="male">Male<br>
+	 <input type="radio" name="gender" value="female">Female<br>
+	 <input type="radio" name="gender" value="others">Others
+     <div id="gender_error" class="val_error"></div>
+
+</fieldset>
+
+	 <br>
+
+<label>Age</label>
+	<input type="text" id="name2" name="age" placeholder="Enter your age number">
+<div id="age_error" class="val_error"></div>
+
+
+<label>Mobile</label>
+	<input type="text" name="mobile" placeholder="+8801*********">
+
+<label>Confirm	Mobile</label>
+	<input type="text" name="confirm_mobile" placeholder="Re-type mobile number">
+    <div id="mobile_error" class="val_error"></div>
+
+<label>Password</label>
+	<input type="password" name="password" placeholder="Password">
+
+	<label>Confirm Password</label>
+	<input type="password" name="confirm_password" placeholder="Re-type password">
+    <div id="password_error" class="val_error"></div>
+
+<input type="submit" name="signup_submit"value="Submit">
+                </div>
+                
+                
+            </form>
+        </div>
+        
+    </div>
+    
+    
+    </body>
+</html>
+
+
+
+<script type="text/javascript">
+//getting input text objects    
+var name=document.forms["vform"]["name"];
+var email=document.forms["vform"]["email"];
+var gender=document.forms["vform"]["gender"];
+var age=document.forms["vform"]["age"];
+var mobile=document.forms["vform"]["mobile"];
+var confirm_mobile=document.forms["vform"]["confirm_mobile"];
+var password=document.forms["vform"]["password"];
+var confirm_password=document.forms["vform"]["confirm_password"];
+//getting error display objects
+var name2=document.getElementById("name2");
+var name_error=document.getElementById("name_error");
+var email_error=document.getElementById("email_error");
+var gender_error=document.getElementById("gender_error");
+var age_error=document.getElementById("age_error");
+var mobile_error=document.getElementById("mobile_error");
+var password_error=document.getElementById("password_error");
+
+//setting all event listeners
+name.addEventListeners("blur",nameVerify,true);
+email.addEventListeners("blur",emailVerify,true);
+gender.addEventListeners("blur",genderVerify,true);
+age.addEventListeners("blur",ageVerify,true);
+mobile.addEventListeners("blur",mobileVerify,true);
+password.addEventListeners("blur",passwordVerify,true);
+
+//validation function
+
+function Validate(){
+
+//name validation
+
+if(name2.value==""){
+name2.style.border="1px solid red";
+name_error.textContent="Name is required";
+name2.focus();
+return false;
+
+}
+
+//email validation
+
+if(email.value==""){
+email.style.border="1px solid red";
+email_error.textContent="Email is required";
+email.focus();
+return false;
+
+}
+
+//gender validation
+
+if(gender.value==""){
+gender.style.border="1px solid red";
+gender_error.textContent="Gender is required";
+gender.focus();
+return false;
+
+}
+
+//age validation
+
+if(age.value==""){
+age.style.border="1px solid red";
+age_error.textContent="Age is required";
+age.focus();
+return false;
+
+}
+
+//mobile validation
+
+if(mobile.value==""){
+mobile.style.border="1px solid red";
+mobile_error.textContent="Mobile is required";
+mobile.focus();
+return false;
+
+}
+
+//password validation
+
+if(password.value==""){
+password.style.border="1px solid red";
+password_error.textContent="Password is required";
+password.focus();
+return false;
+
+}
+
+if(password.value!=confirm_password.value){
+password.style.border="1px solid red";
+confirm_password.style.border="1px solid red";
+password_error.innerHTML=" The two password do not match";
+return false;
+
+}
+
+
+
+
+
+}
+
+
+
+
+//event handler function
+
+
+function nameVerify(){
+  if(name2.value!=""){
+name2.style.border="1px solid #5E6E66";
+name_error.innerHTML=" ";
+
+return true;
+
+}
+
+
+}
+
+
+
+function emailVerify(){
+  if(email.value!=""){
+email.style.border="1px solid #5E6E66";
+email_error.innerHTML=" ";
+
+return true;
+
+}
+
+}
+
+
+function emailVerify(){
+  if(email.value!=""){
+email.style.border="1px solid #5E6E66";
+email_error.innerHTML=" ";
+
+return true;
+
+}
+
+}
+
+
+
+function genderVerify(){
+  if(gender.value!=""){
+gender.style.border="1px solid #5E6E66";
+gender_error.innerHTML=" ";
+
+return true;
+
+}
+
+}
+
+
+function ageVerify(){
+  if(age.value!=""){
+age.style.border="1px solid #5E6E66";
+age_error.innerHTML=" ";
+
+return true;
+
+}
+
+}
+
+
+
+function mobileVerify(){
+  if(mobile.value!=""){
+mobile.style.border="1px solid #5E6E66";
+mobile_error.innerHTML=" ";
+
+return true;
+
+}
+
+}
+
+
+function passwordVerify(){
+  if(password.value!=""){
+password.style.border="1px solid #5E6E66";
+password_error.innerHTML=" ";
+
+return true;
+
+}
+
+}
+
+
+
+
+
+
+
+</script>
