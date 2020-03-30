@@ -17,29 +17,33 @@
             </div>
         </div>
         <div class="lowerpart">
-            <form method="post" action="welcome.php" onsubmit="return Validate()" name="vform">
+            
+            
+<form method="post" action="index.php" onsubmit="return Validate()" name="vform">
             
                 <div class="left">
                     <label>Name</label>
-	<input type="text" name="name" placeholder="Enter your full Name">
-	<div id="name_error" class="val_error"></div>
-	<label>Email</label>
-<input type="email" name="email" placeholder="Enter a valid email address">
-<div id="email_error" class="val_error"></div>
+                <input type="text" name="name"  placeholder="Enter your full Name">
+	           <div id="name_error" class="val_error"></div>
+                    
+                    
+	           <label>Email</label>
+            <input type="email" name="email" placeholder="Enter a valid email address">
+            <div id="email_error" class="val_error"></div>
+                    
+                    
     <label>Gender</label>
 <fieldset width>
-
     <input type="radio" name="gender" value="male">Male<br>
 	 <input type="radio" name="gender" value="female">Female<br>
 	 <input type="radio" name="gender" value="others">Others
      <div id="gender_error" class="val_error"></div>
-
 </fieldset>
-
 	 <br>
 
+                    
 <label>Age</label>
-	<input type="text" id="name2" name="age" placeholder="Enter your age number">
+	<input type="text" name="age" placeholder="Enter your age number">
 <div id="age_error" class="val_error"></div>
 
 
@@ -73,17 +77,19 @@
 
 
 <script type="text/javascript">
+    
+    
+    
 //getting input text objects    
-var name=document.forms["vform"]["name"];
-var email=document.forms["vform"]["email"];
-var gender=document.forms["vform"]["gender"];
-var age=document.forms["vform"]["age"];
-var mobile=document.forms["vform"]["mobile"];
-var confirm_mobile=document.forms["vform"]["confirm_mobile"];
-var password=document.forms["vform"]["password"];
-var confirm_password=document.forms["vform"]["confirm_password"];
+var uname=document.vform.name;
+var email=document.vform.email;
+var gender=document.vform.gender;
+var age=document.vform.age;
+var mobile=document.vform.mobile;
+var confirm_mobile=document.vform.confirm_mobile;
+var password=document.vform.password;
+var confirm_password=document.vform.confirm_password;
 //getting error display objects
-var name2=document.getElementById("name2");
 var name_error=document.getElementById("name_error");
 var email_error=document.getElementById("email_error");
 var gender_error=document.getElementById("gender_error");
@@ -92,48 +98,46 @@ var mobile_error=document.getElementById("mobile_error");
 var password_error=document.getElementById("password_error");
 
 //setting all event listeners
-name.addEventListeners("blur",nameVerify,true);
-email.addEventListeners("blur",emailVerify,true);
-gender.addEventListeners("blur",genderVerify,true);
-age.addEventListeners("blur",ageVerify,true);
-mobile.addEventListeners("blur",mobileVerify,true);
-password.addEventListeners("blur",passwordVerify,true);
+
 
 //validation function
+//var name2=document.getElementById("name2");
+    
 
 function Validate(){
 
+    
+    
+    
 //name validation
 
-if(name2.value==""){
-name2.style.border="1px solid red";
+   if(uname.value==""){
+uname.style.border="1px solid red";
 name_error.textContent="Name is required";
-name2.focus();
+  
+uname.focus();
 return false;
 
-}
+} 
 
+
+
+
+
+
+   
 //email validation
-
-if(email.value==""){
+ if(email.value==""){
 email.style.border="1px solid red";
 email_error.textContent="Email is required";
+  
 email.focus();
 return false;
 
 }
 
-//gender validation
-
-if(gender.value==""){
-gender.style.border="1px solid red";
-gender_error.textContent="Gender is required";
-gender.focus();
-return false;
-
-}
-
-//age validation
+ 
+    
 
 if(age.value==""){
 age.style.border="1px solid red";
@@ -143,12 +147,38 @@ return false;
 
 }
 
+
+
+//gender validation
+
+//if(gender.value==""){
+//gender.style.border="1px solid red";
+//gender_error.textContent="Gender is required";
+//gender.focus();
+//return false;
+//
+//}
+
+//age validation
+
+
+
 //mobile validation
 
 if(mobile.value==""){
 mobile.style.border="1px solid red";
 mobile_error.textContent="Mobile is required";
 mobile.focus();
+return false;
+
+}
+
+
+
+if(mobile.value!=confirm_mobile.value){
+mobile.style.border="1px solid red";
+confirm_mobile.style.border="1px solid red";
+mobile_error.innerHTML=" The two numbers do not match";
 return false;
 
 }
@@ -175,6 +205,17 @@ return false;
 
 
 
+
+//name.addEventListeners("blur",nameVerify,true);
+//email.addEventListeners("blur",emailVerify,true);
+//gender.addEventListeners("blur",genderVerify,true);
+//age.addEventListeners("blur",ageVerify,true);
+//mobile.addEventListeners("blur",mobileVerify,true);
+//password.addEventListeners("blur",passwordVerify,true);
+   
+    
+    
+
 }
 
 
@@ -184,14 +225,14 @@ return false;
 
 
 function nameVerify(){
-  if(name2.value!=""){
-name2.style.border="1px solid #5E6E66";
+  if(name.value!=""){
+name.style.border="1px solid #5E6E66";
 name_error.innerHTML=" ";
 
-return true;
+
 
 }
-
+return false;
 
 }
 
@@ -214,7 +255,6 @@ function emailVerify(){
 email.style.border="1px solid #5E6E66";
 email_error.innerHTML=" ";
 
-return true;
 
 }
 
@@ -262,7 +302,7 @@ return true;
 function passwordVerify(){
   if(password.value!=""){
 password.style.border="1px solid #5E6E66";
-password_error.innerHTML=" ";
+password_error.innerHTML="";
 
 return true;
 

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+</head>
+<body>
+<h1  style="font-size: 55px;"> javascript form validation </h1>
+
+	<div ><br>
+		
+		<div >
+			
+			<form  action="#" onsubmit="return validation()" name="vform" method="post" >
+				
+				<div >
+					<label for="user" class="left"> Email: </label>
+					<input type="email" name="email"  id="email" placeholder="enter your email address">
+					 <div id="email_error" class="val_error"></div>
+				</div>
+
+				<div >
+					<label class="left"> Password: </label>
+					<input type="password" name="pass" id="pass">
+					
+					
+				</div>
+
+				<div >
+					<label class="left"> Confirm Password: </label>
+					<input type="password" name="conpass"id="conpass" >
+					 <div id="password_error" class="val_error"></div>
+				</div>
+
+				
+
+				<input type="submit" name="submit" value="submit">
+
+
+			</form><br><br>
+
+
+		</div>
+	</div>
+
+
+
+	<script type="text/javascript">
+		
+
+		function validation(){
+
+			var email = document.getElementById('email');
+			var pass = document.getElementById('pass');
+			var confirmpass = document.getElementById('conpass');
+			
+			var email_error=document.getElementById("email_error");
+            var password_error=document.getElementById("password_error");
+
+			        if(email.value==""){
+                           email.style.border="1px solid red";
+                           email_error.textContent="Email is required";
+  
+                           email.focus();
+                           return false;
+
+                      }
+
+
+if(pass.value==""){
+pass.style.border="1px solid red";
+password_error.textContent="Password is required";
+pass.focus();
+return false;
+
+}
+
+if(pass.value!=conpass.value){
+pass.style.border="1px solid red";
+conpass.style.border="1px solid red";
+password_error.innerHTML=" The two password do not match";
+return false;
+
+}
+
+
+
+
+			
+			
+
+        }
+
+	</script>
+
+</body>
+</html>
